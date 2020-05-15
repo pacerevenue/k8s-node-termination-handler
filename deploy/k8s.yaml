@@ -64,7 +64,10 @@ spec:
               fieldRef:
                 fieldPath: metadata.namespace
           - name: SLACK_WEBHOOK_URL
-            value: ""
+            valueFrom:
+              secretKeyRef:
+                name: slack-webhook
+                key: url
         resources:
           limits:
             cpu: 150m

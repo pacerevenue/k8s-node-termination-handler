@@ -45,7 +45,7 @@ spec:
               - key: cloud.google.com/gke-preemptible
                 operator: Exists
       containers:
-      - image: gcr.io/paceup-main/gke-node-termination-handler:latest
+      - image: gcr.io/paceup-main/k8s-node-termination-handler:latest
         imagePullPolicy: "Always"
         name: node-termination-handler
         command: ["./node-termination-handler"]

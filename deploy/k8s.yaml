@@ -45,7 +45,8 @@ spec:
               - key: cloud.google.com/gke-preemptible
                 operator: Exists
       containers:
-      - image: 8398a7/gke-node-termination-handler:f8dbebbe86e7eaeab152b56fd841367d8f7e561b  # use version from https://github.com/GoogleCloudPlatform/k8s-node-termination-handler/pull/21
+      - image: gcr.io/paceup-main/gke-node-termination-handler:latest
+        imagePullPolicy: "Always"
         name: node-termination-handler
         command: ["./node-termination-handler"]
         args: ["--logtostderr", "--exclude-pods=$(POD_NAME):$(POD_NAMESPACE)", "-v=10", "--taint=cloud.google.com/impending-node-termination::NoSchedule"]

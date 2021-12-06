@@ -6,7 +6,7 @@ WORKDIR /go/src/github.com/GoogleCloudPlatform/k8s-node-termination-handler
 RUN CGO_ENABLED=0 GOOS=linux go build -a -ldflags '-extldflags "-static"' -tags netgo -o node-termination-handler
 
 # final stage
-FROM gcr.io/distroless/static:latest
+FROM gcr.io/distroless/static:latest@sha256:1cc74da80bbf80d89c94e0c7fe22830aa617f47643f2db73f66c8bd5bf510b25
 WORKDIR /app
 COPY --from=build-env /go/src/github.com/GoogleCloudPlatform/k8s-node-termination-handler/node-termination-handler /app/
 ENTRYPOINT ["./node-termination-handler"]

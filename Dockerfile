@@ -1,5 +1,5 @@
 # build stage
-FROM golang:latest AS build-env
+FROM golang:latest@sha256:a83ce262aae35c84eae5df3e4298e62ac224672280b8cb6254134745c62595c9 AS build-env
 RUN go get github.com/golang/dep/cmd/dep
 RUN go get -d github.com/GoogleCloudPlatform/k8s-node-termination-handler || true
 WORKDIR /go/src/github.com/GoogleCloudPlatform/k8s-node-termination-handler
